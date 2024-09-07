@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Menu } from 'lucide-react';
+
+import { MobileMenu } from './mobile-menu';
 
 const CartButton = dynamic(async () => await import('./cart-button'), { ssr: false });
 
@@ -18,7 +19,8 @@ export default function Navbar() {
             Dummy <span className="text-primary">E-Commerce</span>
           </h1>
         </Link>
-        <Menu />
+
+        <MobileMenu links={links} />
       </div>
 
       <div className="hidden h-full items-center justify-between gap-8 md:flex">
