@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-import { getCategories } from '@/services/categories';
+import { getCategories } from '@/services/categories'
 
 export default function useCategories() {
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([])
 
   useEffect(() => {
     getCategories().then((cats) => {
-      setCategories(cats);
-    });
-  }, []);
+      setCategories(cats)
+    })
+  }, [])
 
-  return { categories };
+  return { categories }
 }

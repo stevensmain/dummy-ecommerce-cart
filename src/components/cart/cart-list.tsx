@@ -1,14 +1,14 @@
-'use client';
+'use client'
 
-import { useCartStore } from '@/store/cart';
+import { useCartStore } from '@/store/cart'
 
-import { CartItemCard } from './cart-item';
+import { CartItemCard } from './cart-item'
 
 export default function CartList() {
-  const cartItems = useCartStore((state) => state.items);
+  const cartItems = useCartStore((state) => state.items)
 
   if (cartItems.length === 0) {
-    return <p className="mt-12 text-center text-xl">No products found</p>;
+    return <p className="mt-12 text-center text-xl">No products found</p>
   }
 
   return (
@@ -17,5 +17,5 @@ export default function CartList() {
         <CartItemCard key={item.id} item={item} />
       ))}
     </div>
-  );
+  )
 }

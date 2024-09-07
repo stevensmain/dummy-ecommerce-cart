@@ -1,14 +1,16 @@
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
-import { MobileMenu } from './mobile-menu';
+import { MobileMenu } from './mobile-menu'
 
-const CartButton = dynamic(async () => await import('./cart-button'), { ssr: false });
+const CartButton = dynamic(async () => await import('./cart-button'), {
+  ssr: false,
+})
 
 const links = [
   { name: 'Home', href: '/' },
   { name: 'Cart', href: '/cart' },
-];
+]
 
 export default function Navbar() {
   return (
@@ -43,5 +45,5 @@ export default function Navbar() {
         <CartButton />
       </div>
     </header>
-  );
+  )
 }

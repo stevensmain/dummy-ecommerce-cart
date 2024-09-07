@@ -1,18 +1,19 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { discountPrice } from '@/helpers/products';
-import { type Product } from '@/types/products';
+import { discountPrice } from '@/helpers/products'
+import { type Product } from '@/types/products'
 
-import { AddToCartButton } from '../add-to-cart-button';
+import { AddToCartButton } from '../add-to-cart-button'
 
 interface ProductCardProps {
-  product: Product;
+  product: Product
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { id, images, title, category, price, discountPercentage, brand } = product;
-  const totalPrice = discountPrice(price, discountPercentage);
+  const { id, images, title, category, price, discountPercentage, brand } =
+    product
+  const totalPrice = discountPrice(price, discountPercentage)
 
   return (
     <div className="group relative">
@@ -38,7 +39,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex flex-col items-end">
           <div className="flex items-baseline gap-1">
             <p className="text-sm text-gray-500">-{discountPercentage}%</p>
-            <p className="text-sm font-medium text-destructive line-through">${price}</p>
+            <p className="text-sm font-medium text-destructive line-through">
+              ${price}
+            </p>
           </div>
           <p className="text-sm font-medium text-gray-900">${totalPrice}</p>
         </div>
@@ -49,5 +52,5 @@ export default function ProductCard({ product }: ProductCardProps) {
         className="mt-2 h-auto w-max bg-destructive px-4 py-[5px] text-xs hover:bg-primary/90"
       />
     </div>
-  );
+  )
 }

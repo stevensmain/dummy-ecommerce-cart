@@ -1,5 +1,5 @@
-import { type Product } from '@/types/products';
-import { type CartItem } from '@/types/cart';
+import { type Product } from '@/types/products'
+import { type CartItem } from '@/types/cart'
 
 export const product: Product = {
   id: 1,
@@ -35,6 +35,10 @@ export const product: Product = {
   ],
   thumbnail:
     'https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png',
-};
+}
 
-export const cartItem: CartItem = { ...product, title: 'Product 1', quantity: 1 };
+export const cartItem: CartItem = {
+  ...product,
+  title: 'Product 1',
+  quantity: 1,
+}

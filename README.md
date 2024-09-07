@@ -8,18 +8,24 @@ permitir a los usuarios ver el detalle de cada producto, añadir productos a un 
 compras, y filtrar productos basándose en ciertos criterios.
 
 Casos de uso:
+
 1. Página Listado de Productos
+
 - Consumir la API DummyJSON para obtener y mostrar un listado de productos y páginarlos.
 - Implementar la funcionalidad de filtrado para que los usuarios puedan filtrar productos por:
-    ○ Precio (price)
-    ○ Porcentaje de descuento (discountPercentage)
-    ○ Calificación (rating)
-    ○ Stock disponible (stock)
-    ○ Marca (brand)
-    ○ Categoría (category)
+  ○ Precio (price)
+  ○ Porcentaje de descuento (discountPercentage)
+  ○ Calificación (rating)
+  ○ Stock disponible (stock)
+  ○ Marca (brand)
+  ○ Categoría (category)
+
 2. Página Detalle de Producto
+
 - Permitir a los usuarios ver el detalle de cada producto al seleccionarlo, mostrando información detallada del producto y agregarlo al carrito.
+
 3. Carro de Compras
+
 - Implementar un carro de compras donde los usuarios puedan añadir productos desde el listado y detalle. Permitir a los usuarios ver, actualizar la cantidad, o eliminar productos del carro y precio total. Implementar una solución de gestión del estado para manejar el carrito de compras que persiste la información.
 
 ## 🚀 Características

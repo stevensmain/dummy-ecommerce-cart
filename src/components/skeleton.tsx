@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default function Skeleton() {
   return (
@@ -34,5 +34,5 @@ export default function Skeleton() {
         <div className="h-4 w-1/2 rounded-md bg-gray-100" />
       </div>
     </div>
-  );
+  )
 }

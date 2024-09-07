@@ -1,48 +1,54 @@
-'use client';
+'use client'
 
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import { BRANDS } from '@/mocks/brands';
-import useCategories from '@/hooks/use-categories';
-import { type FiltersForm, filtersSchema } from '@/schemas/filters';
+import { BRANDS } from '@/mocks/brands'
+import useCategories from '@/hooks/use-categories'
+import { type FiltersForm, filtersSchema } from '@/schemas/filters'
 
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Input } from '../ui/input'
+import { Button } from '../ui/button'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../ui/select'
 
 export default function ProductFilters() {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const { categories } = useCategories();
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const { replace } = useRouter()
+  const { categories } = useCategories()
 
   const form = useForm({
     mode: 'onChange',
     resolver: zodResolver(filtersSchema),
-  });
-  const { control, handleSubmit } = form;
+  })
+  const { control, handleSubmit } = form
 
   const onSubmit = handleSubmit((data: FiltersForm) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams)
 
     Object.entries(data).forEach(([key, value]) => {
       if (value) {
-        params.set(key, value.toString());
+        params.set(key, value.toString())
       } else {
-        params.delete(key);
+        params.delete(key)
       }
-    });
+    })
 
-    replace(`${pathname}?${params.toString()}`);
-  });
+    replace(`${pathname}?${params.toString()}`)
+  })
 
   const handleClearFilters = () => {
-    form.reset();
-    replace(pathname);
-  };
+    form.reset()
+    replace(pathname)
+  }
 
   return (
     <Form {...form}>
@@ -55,8 +61,8 @@ export default function ProductFilters() {
               <FormItem>
                 <Select
                   onValueChange={(value) => {
-                    field.onChange(value);
-                    onSubmit();
+                    field.onChange(value)
+                    onSubmit()
                   }}
                   value={field.value}
                 >
@@ -85,8 +91,8 @@ export default function ProductFilters() {
                 <FormControl>
                   <Select
                     onValueChange={(value) => {
-                      field.onChange(value);
-                      onSubmit();
+                      field.onChange(value)
+                      onSubmit()
                     }}
                     value={field.value}
                   >
@@ -115,8 +121,8 @@ export default function ProductFilters() {
                 <FormControl>
                   <Select
                     onValueChange={(value) => {
-                      field.onChange(value);
-                      onSubmit();
+                      field.onChange(value)
+                      onSubmit()
                     }}
                     value={field.value}
                   >
@@ -146,8 +152,8 @@ export default function ProductFilters() {
                 <FormControl>
                   <Select
                     onValueChange={(value) => {
-                      field.onChange(value);
-                      onSubmit();
+                      field.onChange(value)
+                      onSubmit()
                     }}
                     value={field.value}
                   >
@@ -181,8 +187,8 @@ export default function ProductFilters() {
                     min={0}
                     className="w-24 text-xs"
                     onChange={(value) => {
-                      onChange(value);
-                      onSubmit();
+                      onChange(value)
+                      onSubmit()
                     }}
                     {...field}
                   />
@@ -205,8 +211,8 @@ export default function ProductFilters() {
                     min={0}
                     className="w-24 text-xs"
                     onChange={(value) => {
-                      onChange(value);
-                      onSubmit();
+                      onChange(value)
+                      onSubmit()
                     }}
                     {...field}
                   />
@@ -223,5 +229,5 @@ export default function ProductFilters() {
         </div>
       </form>
     </Form>
-  );
+  )
 }

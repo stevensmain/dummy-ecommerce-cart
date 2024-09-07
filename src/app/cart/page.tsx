@@ -1,9 +1,15 @@
-import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic'
 
-const CartList = dynamic(async () => await import('@/components/cart/cart-list'), { ssr: false });
-const CartDetails = dynamic(async () => await import('@/components/cart/cart-details'), {
-  ssr: false,
-});
+const CartList = dynamic(
+  async () => await import('@/components/cart/cart-list'),
+  { ssr: false }
+)
+const CartDetails = dynamic(
+  async () => await import('@/components/cart/cart-details'),
+  {
+    ssr: false,
+  }
+)
 
 export default function CartPage() {
   return (
@@ -17,5 +23,5 @@ export default function CartPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

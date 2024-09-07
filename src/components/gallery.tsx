@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from 'next/image'
+import { useState } from 'react'
 
 interface GalleryProps {
-  images: string[];
+  images: string[]
 }
 
 export function Gallery({ images }: GalleryProps) {
-  const [bigImage, setBigImage] = useState(images[0]);
+  const [bigImage, setBigImage] = useState(images[0])
 
   const handleSmallImageClick = (image: string) => {
-    setBigImage(image);
-  };
+    setBigImage(image)
+  }
 
   return (
     <div className="grid gap-4 lg:grid-cols-5">
@@ -26,7 +26,7 @@ export function Gallery({ images }: GalleryProps) {
               alt="photo"
               className="h-full w-full cursor-pointer object-cover object-center"
               onClick={() => {
-                handleSmallImageClick(image);
+                handleSmallImageClick(image)
               }}
             />
           </div>
@@ -47,5 +47,5 @@ export function Gallery({ images }: GalleryProps) {
         </span>
       </div>
     </div>
-  );
+  )
 }

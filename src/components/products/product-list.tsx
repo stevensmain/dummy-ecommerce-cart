@@ -1,26 +1,26 @@
-import { getProducts } from '@/services/products';
-import { filterProducts } from '@/helpers/products';
+import { getProducts } from '@/services/products'
+import { filterProducts } from '@/helpers/products'
 
-import { type SearchParamsProps } from '@/app/page';
+import { type SearchParamsProps } from '@/app/page'
 
-import ProductCard from './product-card';
-import Pagination from '../pagination';
+import ProductCard from './product-card'
+import Pagination from '../pagination'
 
 interface ProductListProps {
-  searchParams: SearchParamsProps;
+  searchParams: SearchParamsProps
 }
 
-const LIMIT = 9;
+const LIMIT = 9
 
 export default async function ProductList({ searchParams }: ProductListProps) {
-  const SKIP = searchParams.page ? parseInt(searchParams.page) * LIMIT : 0;
-  const { products, total } = await getProducts(SKIP, LIMIT);
-  const totalPages = Math.ceil(total / LIMIT);
+  const SKIP = searchParams.page ? parseInt(searchParams.page) * LIMIT : 0
+  const { products, total } = await getProducts(SKIP, LIMIT)
+  const totalPages = Math.ceil(total / LIMIT)
 
-  const filteredProducts = filterProducts(products, searchParams);
+  const filteredProducts = filterProducts(products, searchParams)
 
   if (filteredProducts.length === 0) {
-    return <p className="mt-12 text-center text-xl">No products found</p>;
+    return <p className="mt-12 text-center text-xl">No products found</p>
   }
 
   return (
@@ -31,7 +31,10 @@ export default async function ProductList({ searchParams }: ProductListProps) {
         ))}
       </div>
 
-      <Pagination currentPage={Number(searchParams.page) || 1} totalPages={totalPages} />
+      <Pagination
+        currentPage={Number(searchParams.page) || 1}
+        totalPages={totalPages}
+      />
     </>
-  );
+  )
 }

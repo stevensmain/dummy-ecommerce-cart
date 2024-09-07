@@ -1,18 +1,20 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react'
 
-import { getProducts } from '@/services/products';
-import { filterProducts } from '@/helpers/products';
+import { getProducts } from '@/services/products'
+import { filterProducts } from '@/helpers/products'
 
-import ProductList from '@/components/products/product-list';
+import ProductList from '@/components/products/product-list'
 
 jest.mock('../../../services/products', () => ({
   getProducts: jest.fn(),
-}));
+}))
 
 jest.mock('../../../helpers/products', () => ({
   filterProducts: jest.fn(),
-  discountPrice: jest.fn((price, discountPercentage) => price - (price * discountPercentage) / 100),
-}));
+  discountPrice: jest.fn(
+    (price, discountPercentage) => price - (price * discountPercentage) / 100
+  ),
+}))
 
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
@@ -26,7 +28,7 @@ jest.mock('next/navigation', () => ({
   }),
   usePathname: jest.fn(),
   useSearchParams: jest.fn(),
-}));
+}))
 
 const mockProducts = [
   {
@@ -47,44 +49,48 @@ const mockProducts = [
     discountPercentage: 20,
     brand: 'Brand 2',
   },
-];
+]
 
-const responseMock = { products: mockProducts, total: 18 };
+const responseMock = { products: mockProducts, total: 18 }
 
 describe('ProductList Component', () => {
   const setup = async () => {
-    const jsx = await ProductList({ searchParams: { page: '1' } });
-    render(jsx);
-  };
+    const jsx = await ProductList({ searchParams: { page: '1' } })
+    render(jsx)
+  }
 
   afterEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
   test('should render a message when no products are found', async () => {
-    (getProducts as jest.Mock).mockResolvedValue({ products: [], total: 0 });
-    (filterProducts as jest.Mock).mockReturnValue([]);
+    ;(getProducts as jest.Mock).mockResolvedValue({ products: [], total: 0 })
+    ;(filterProducts as jest.Mock).mockReturnValue([])
 
-    await setup();
+    await setup()
 
     await waitFor(() => {
-      expect(screen.getByText('No products found')).toBeInTheDocument();
-    });
-  });
+      expect(screen.getByText('No products found')).toBeInTheDocument()
+    })
+  })
 
   test('should render product cards when products are available', async () => {
-    (getProducts as jest.Mock).mockResolvedValue(responseMock);
-    (filterProducts as jest.Mock).mockReturnValue(mockProducts);
+    ;(getProducts as jest.Mock).mockResolvedValue(responseMock)
+    ;(filterProducts as jest.Mock).mockReturnValue(mockProducts)
 
-    await setup();
+    await setup()
 
     await waitFor(() => {
       mockProducts.forEach((product) => {
-        expect(screen.getByText(product.title)).toBeInTheDocument();
-        expect(screen.getByText(`${product.brand} - ${product.category}`)).toBeInTheDocument();
-        expect(screen.getByText(`$${product.price}`)).toBeInTheDocument();
-        expect(screen.getByText(`-${product.discountPercentage}%`)).toBeInTheDocument();
-      });
-    });
-  });
-});
+        expect(screen.getByText(product.title)).toBeInTheDocument()
+        expect(
+          screen.getByText(`${product.brand} - ${product.category}`)
+        ).toBeInTheDocument()
+        expect(screen.getByText(`$${product.price}`)).toBeInTheDocument()
+        expect(
+          screen.getByText(`-${product.discountPercentage}%`)
+        ).toBeInTheDocument()
+      })
+    })
+  })
+})

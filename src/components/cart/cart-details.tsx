@@ -1,14 +1,20 @@
-'use client';
+'use client'
 
-import { toast } from '@/hooks/use-toast';
-import { useCartStore } from '@/store/cart';
+import { toast } from '@/hooks/use-toast'
+import { useCartStore } from '@/store/cart'
 
-import { Button } from '../ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/card';
+import { Button } from '../ui/button'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '../ui/card'
 
 export default function CartDetails() {
-  const totalAmount = useCartStore((state) => state.getTotalPrice());
-  const clearCart = useCartStore((state) => state.clearCart);
+  const totalAmount = useCartStore((state) => state.getTotalPrice())
+  const clearCart = useCartStore((state) => state.clearCart)
 
   const handleBuy = () => {
     if (!totalAmount) {
@@ -16,16 +22,16 @@ export default function CartDetails() {
         title: 'Error',
         description: 'Your cart is empty',
         variant: 'destructive',
-      });
-      return;
+      })
+      return
     }
 
     toast({
       title: 'Success',
       description: 'Thank you for your purchase!',
-    });
-    clearCart();
-  };
+    })
+    clearCart()
+  }
 
   return (
     <Card>
@@ -47,5 +53,5 @@ export default function CartDetails() {
         </Button>
       </CardFooter>
     </Card>
-  );
+  )
 }
