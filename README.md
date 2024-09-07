@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Dummy E-Commerce Cart
 
-## Getting Started
+Este es un proyecto de ejemplo de una aplicación de carrito de compras desarrollada con [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), y gestionada con [Zustand](https://zustand-demo.pmnd.rs/). Las pruebas unitarias y funcionales están implementadas utilizando [Jest](https://jestjs.io/) y [React Testing Library](https://testing-library.com/).
 
-First, run the development server:
+## 🚀 Características
+
+- **Next.js**: Framework React que permite renderizado del lado del servidor (SSR) y generación de sitios estáticos.
+- **TypeScript**: Uso de tipado estático para mejorar la mantenibilidad y robustez del código.
+- **Zustand**: Gestión de estado ligera y escalable para React.
+- **Jest y Testing Library**: Implementación de tests unitarios y funcionales.
+- **Diseño Responsive**: Interfaz adaptada a dispositivos móviles y de escritorio.
+- **Componentes Reusables**: Uso de componentes React modulares y reusables.
+- **Manejo de Carrito**: Añadir, eliminar, y actualizar productos en el carrito de compras.
+- **Persistencia de Estado**: El estado del carrito se persiste en `localStorage`.
+
+## 🛠️ Tecnologías
+
+- **Next.js**
+- **TypeScript**
+- **Zustand**
+- **Jest**
+- **React Testing Library**
+- **TailwindCSS**
+- **pnpm** (para la gestión de dependencias)
+
+## 📦 Instalación
+
+1. Clona el repositorio:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/stevensmain/dummy-ecommerce-cart.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navega al directorio del proyecto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd nombre-del-repo
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Instala las dependencias usando `pnpm`:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🏃‍♂️ Ejecución del Proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para ejecutar la aplicación en modo de desarrollo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+```
 
-## Deploy on Vercel
+La aplicación estará disponible en `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Build para Producción
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para crear una versión optimizada para producción:
+
+```bash
+pnpm build
+```
+
+Para ejecutar el servidor en producción:
+
+```bash
+pnpm start
+```
+
+## 🧪 Ejecución de Tests
+
+Este proyecto incluye tests unitarios y de integración usando Jest y React Testing Library.
+
+Para ejecutar los tests:
+
+```bash
+pnpm test
+```
+
+Para ejecutar los tests en modo watch (ideal para desarrollo):
+
+```bash
+pnpm test:watch
+```
