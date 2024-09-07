@@ -56,7 +56,7 @@ export const useCartStore = create<CartState>()(
           const totalPrice = discountPrice(item.price, item.discountPercentage);
           return sum + totalPrice * item.quantity;
         }, 0);
-        return total;
+        return parseFloat(total.toFixed(2));
       },
       getTotalItems: () => {
         const total = get().items.reduce((sum, item) => sum + item.quantity, 0);
