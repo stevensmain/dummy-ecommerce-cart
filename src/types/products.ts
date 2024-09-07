@@ -1,28 +1,3 @@
-export type AvailabilityStatus = 'In Stock' | 'Low Stock';
-
-export type Category = 'beauty' | 'fragrances' | 'furniture' | 'groceries';
-
-export interface Dimensions {
-  width: number;
-  height: number;
-  depth: number;
-}
-
-export interface Meta {
-  createdAt: string;
-  updatedAt: string;
-  barcode: string;
-  qrCode: string;
-}
-
-export interface Review {
-  rating: number;
-  comment: string;
-  date: Date;
-  reviewerName: string;
-  reviewerEmail: string;
-}
-
 export interface Product {
   id: number;
   title: string;
@@ -53,4 +28,29 @@ export interface ProductsResponse {
   total: number;
   skip: number;
   limit: number;
+}
+
+export type AvailabilityStatus = 'In Stock' | 'Low Stock';
+
+export type Category = 'beauty' | 'fragrances' | 'furniture' | 'groceries';
+
+export interface Dimensions {
+  width: number;
+  height: number;
+  depth: number;
+}
+
+export interface Meta {
+  createdAt: string;
+  updatedAt: string;
+  barcode: string;
+  qrCode: string;
+}
+
+export interface Review {
+  rating: number;
+  comment: string;
+  date: Date;
+  reviewerName: string;
+  reviewerEmail: string;
 }
