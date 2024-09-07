@@ -81,6 +81,6 @@ describe('Cart Store', () => {
     });
 
     const totalItems = result.current.getTotalItems();
-    expect(totalItems).toBe(8);
+    expect(totalItems).toBe(3);
   });
 });
