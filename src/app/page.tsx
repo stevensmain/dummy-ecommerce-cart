@@ -17,9 +17,8 @@ export interface SearchParamsProps {
 export default async function Home({ searchParams }: { searchParams: SearchParamsProps }) {
   return (
     <>
-      <ProductFilters />
-
       <Suspense fallback={<Skeleton />}>
+        <ProductFilters />
         <ProductList searchParams={searchParams} />
       </Suspense>
     </>

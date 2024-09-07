@@ -15,7 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const totalPrice = discountPrice(price, discountPercentage);
 
   return (
-    <Link href={`/product/${id}`} className="group relative">
+    <div className="group relative">
       <div className="relative aspect-square w-full overflow-hidden rounded-md bg-gray-200 lg:h-80">
         <Image
           src={images[0]}
@@ -28,7 +28,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <div className="mt-4 flex justify-between">
         <div>
-          <h3 className="text-sm text-gray-700">{title}</h3>
+          <Link href={`/product/${id}`}>
+            <h3 className="text-sm text-gray-700">{title}</h3>
+          </Link>
           <p className="mt-1 text-sm text-gray-500">
             {brand && `${brand} - `} {category}
           </p>
@@ -46,6 +48,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         product={product}
         className="mt-2 h-auto w-max bg-destructive px-4 py-[5px] text-xs hover:bg-primary/90"
       />
-    </Link>
+    </div>
   );
 }
